@@ -1,12 +1,12 @@
 class LoginPage {
     //Locators for Login Page
-    loginPageURL = 'https://www.saucedemo.com';
+    loginPageURL = Cypress.config().baseUrl;
     usernameInput = '[data-test="username"]';
     passwordInput = '[data-test="password"]';
     loginButton = '[data-test="login-button"]';
 
     //Locators for Items page
-    itemsPageURL = "https://www.saucedemo.com/inventory.html";
+    itemsPageURL = Cypress.config().itemsPageURL;
     inventoryList = ".inventory_list";
 
 
