@@ -4,6 +4,7 @@ class LoginPage {
     usernameInput = '[data-test="username"]';
     passwordInput = '[data-test="password"]';
     loginButton = '[data-test="login-button"]';
+    errorButton = '[data-test="error-button"]';
 
     //Locators for Items page
     itemsPageURL = Cypress.config().itemsPageURL;
@@ -32,10 +33,19 @@ class LoginPage {
         cy.get(this.loginButton).click();
     }
 
+    isErrorButtonVisible () {
+        cy.get(this.errorButton).should('be.visible');
+    }
+
     login(username,password) {
         this.enterUsername(username);
         this.enterPassword(password);
         this.clickLoginButton();
+    }
+
+    loginWithInvalidCredentials(username,password) {
+        this.login(username,password);
+        this.isErrorButtonVisible();
     }
 }
 
