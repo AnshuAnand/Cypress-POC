@@ -31,6 +31,12 @@ class LoginPage {
     clickLoginButton() {
         cy.get(this.loginButton).click();
     }
+
+    login(username,password) {
+        this.enterUsername(username);
+        this.enterPassword(password);
+        this.clickLoginButton();
+    }
 }
 
 // 🏷️ Export the class so it can be imported in tests
