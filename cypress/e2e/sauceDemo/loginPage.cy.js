@@ -19,6 +19,5 @@ describe("Login page", () => {
     loginPage.clickLoginButton();
     cy.url().should('eq',loginPage.itemsPageURL);
     cy.get(loginPage.inventoryList).should('be.visible');
-
   });
 });
