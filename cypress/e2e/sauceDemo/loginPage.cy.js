@@ -14,9 +14,7 @@ describe("Login page", () => {
   it("should login with valid credentials", () => {
     const username = "standard_user";
     const password = "secret_sauce";
-    loginPage.enterUsername(username);
-    loginPage.enterPassword(password);
-    loginPage.clickLoginButton();
+    loginPage.login(username,password);
     cy.url().should('eq',loginPage.itemsPageURL);
     cy.get(loginPage.inventoryList).should('be.visible');
   });
