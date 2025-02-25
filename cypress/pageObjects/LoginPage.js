@@ -6,11 +6,7 @@ class LoginPage {
     loginButton = '[data-test="login-button"]';
     errorButton = '[data-test="error-button"]';
 
-    //Locators for Items page
-    itemsPageURL = Cypress.config().itemsPageURL;
-    inventoryList = ".inventory_list";
-
-    //Methods
+    //Methods for Login page
     visitLoginPage () {
         cy.visit(this.loginPageURL);
     }

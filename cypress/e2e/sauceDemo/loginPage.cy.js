@@ -1,7 +1,9 @@
 import LoginPage from "../../pageObjects/LoginPage";
 import loginTestData from '../../fixtures/loginTestData.json';
+import InventoryPage from "../../pageObjects/InventoryPage";
 
 const loginPage = new LoginPage();
+const inventoryPage = new InventoryPage();
 
 describe("Login page", () => {
   beforeEach(() => {
@@ -12,12 +14,12 @@ describe("Login page", () => {
     loginPage.isLoginButtonVisible();
   });
 
-  it("should login with valid credentials", () => {
+  it.only("should login with valid credentials", () => {
     const username = loginTestData.validUsername;
     const password = loginTestData.validPassword;
     loginPage.login(username,password);
-    cy.url().should('eq',loginPage.itemsPageURL);
-    cy.get(loginPage.inventoryList).should('be.visible');
+    cy.url().should('eq',inventoryPage.itemsPageURL);
+    cy.get(inventoryPage.inventoryList).should('be.visible');
   });
 
   it("should not login with invalid username", () => {
