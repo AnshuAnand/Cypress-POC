@@ -10,8 +10,6 @@ class LoginPage {
     itemsPageURL = Cypress.config().itemsPageURL;
     inventoryList = ".inventory_list";
 
-
-
     //Methods
     visitLoginPage () {
         cy.visit(this.loginPageURL);
