@@ -1,10 +1,10 @@
 class LoginPage {
     //Locators for Login Page
     loginPageURL = Cypress.config().baseUrl;
-    usernameInput = '[data-test="username"]';
-    passwordInput = '[data-test="password"]';
-    loginButton = '[data-test="login-button"]';
-    errorButton = '[data-test="error-button"]';
+    txtUsername = '[data-test="username"]';
+    txtPassword = '[data-test="password"]';
+    btnLogin = '[data-test="login-button"]';
+    btnError = '[data-test="error-button"]';
 
     //Methods for Login page
     visitLoginPage () {
@@ -12,23 +12,23 @@ class LoginPage {
     }
 
     isLoginButtonVisible() {
-        cy.get(this.loginButton).should('be.visible');
+        cy.get(this.btnLogin).should('be.visible');
     }
 
     enterUsername (username) {
-        cy.get(this.usernameInput).type(username);
+        cy.get(this.txtUsername).type(username);
     }
 
     enterPassword (password) {
-        cy.get(this.passwordInput).type(password);
+        cy.get(this.txtPassword).type(password);
     }
 
     clickLoginButton() {
-        cy.get(this.loginButton).click();
+        cy.get(this.btnLogin).click();
     }
 
     isErrorButtonVisible () {
-        cy.get(this.errorButton).should('be.visible');
+        cy.get(this.btnError).should('be.visible');
     }
 
     login(username,password) {
@@ -37,10 +37,10 @@ class LoginPage {
         this.clickLoginButton();
     }
 
-    loginWithInvalidCredentials(username,password) {
+     loginWithInvalidCredentials(username,password) {
         this.login(username,password);
         this.isErrorButtonVisible();
-    }
+    } 
 }
 
 // 🏷️ Export the class so it can be imported in tests
