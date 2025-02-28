@@ -14,30 +14,28 @@ describe("Login page", () => {
     loginPage.isLoginButtonVisible();
   });
 
-  it.only("should login with valid credentials", () => {
+  it("should login with valid credentials", () => {
     const username = loginTestData.validUsername;
     const password = loginTestData.validPassword;
-    loginPage.login(username,password);
-    cy.url().should('eq',inventoryPage.itemsPageURL);
-    cy.get(inventoryPage.inventoryList).should('be.visible');
+    loginPage.validateLogin(username,password,false);
   });
 
   it("should not login with invalid username", () => {
     const username = loginTestData.invalidUsername;
     const password = loginTestData.validPassword;
-    loginPage.loginWithInvalidCredentials(username,password);
+    loginPage.validateLogin(username,password,true);
   });
 
   it("should not login with invalid password", () => {
     const username = loginTestData.validUsername;
     const password = loginTestData.invalidPassword;
-    loginPage.loginWithInvalidCredentials(username,password);
+    loginPage.validateLogin(username,password,true);
   })
 
   it("should not login with invalid username and password", () => {
     const username = loginTestData.invalidUsername;
     const password = loginTestData.invalidPassword;
-    loginPage.loginWithInvalidCredentials(username,password);
+    loginPage.validateLogin(username,password,true);
   })
   
 });

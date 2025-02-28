@@ -1,3 +1,5 @@
+import InventoryPage from "./InventoryPage";
+const inventoryPage = new InventoryPage();
 class LoginPage {
     //Locators for Login Page
     loginPageURL = Cypress.config().baseUrl;
@@ -37,10 +39,15 @@ class LoginPage {
         this.clickLoginButton();
     }
 
-     loginWithInvalidCredentials(username,password) {
+    validateLogin(username,password,shouldError = false) {
         this.login(username,password);
-        this.isErrorButtonVisible();
-    } 
+        if(shouldError) {
+            this.isErrorButtonVisible();
+        } else {
+            cy.url().should('eq',inventoryPage.itemsPageURL);
+            cy.get(inventoryPage.inventoryList).should('be.visible');
+        }
+    }
 }
 
 // 🏷️ Export the class so it can be imported in tests
