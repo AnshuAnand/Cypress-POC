@@ -1,6 +1,13 @@
 {
-  "validUsername": "standard_user",
+  "validUsername": [
+    "standard_user",
+    "problem_user",
+    "performance_glitch_user",
+    "error_user",
+    "visual_user"
+  ],
   "validPassword": "secret_sauce",
   "invalidUsername": "test",
-  "invalidPassword": "password"
+  "lockedOutUser": "locked_out_user",
+  "invalidPassword": "test"
 }
