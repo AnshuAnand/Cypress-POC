@@ -8,6 +8,7 @@
   ],
   "validPassword": "secret_sauce",
   "invalidUsername": "test",
-  "lockedOutUser": "locked_out_user",
-  "invalidPassword": "test"
+  "invalidPassword": "test",
+  "lockedOutUser": "locked_out_user"
+  
 }

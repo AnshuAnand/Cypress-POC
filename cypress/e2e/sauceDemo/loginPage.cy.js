@@ -25,12 +25,14 @@ describe("Login page", () => {
   it("should not login with invalid username and password", () => {
     const username = loginTestData.invalidUsername;
     const password = loginTestData.invalidPassword;
-    loginPage.validateLogin(username, password, true);
+    const errorMessage = "Epic sadface: Username and password do not match any user in this service";
+    loginPage.validateLogin(username, password, true, errorMessage);
   });
 
-  it.only("should show error for a locked_out user",() => {
+  it("should show error for a locked_out user",() => {
     const username = loginTestData.lockedOutUser;
-    const password = loginTestData.invalidPassword;
-    loginPage.validateLogin(username,password,true);
+    const password = loginTestData.validPassword;
+    const lockedOutErrorMessage = "Epic sadface: Sorry, this user has been locked out.";
+    loginPage.validateLogin(username,password,true, lockedOutErrorMessage);
   })
 });

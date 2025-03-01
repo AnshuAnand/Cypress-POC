@@ -6,7 +6,7 @@ class LoginPage {
     txtUsername = '[data-test="username"]';
     txtPassword = '[data-test="password"]';
     btnLogin = '[data-test="login-button"]';
-    btnError = '[data-test="error-button"]';
+    btnError = '[data-test="error"]';
 
     //Methods for Login page
     visitLoginPage () {
@@ -29,8 +29,11 @@ class LoginPage {
         cy.get(this.btnLogin).click();
     }
 
-    isErrorButtonVisible () {
+    isErrorButtonVisible (errorMessage = null) {
         cy.get(this.btnError).should('be.visible');
+        if (errorMessage) {
+            cy.get(this.btnError).should('contain.text', errorMessage);
+        }
     }
 
     login(username,password) {
@@ -39,10 +42,10 @@ class LoginPage {
         this.clickLoginButton();
     }
 
-    validateLogin(username,password,shouldError = false) {
+    validateLogin(username,password,shouldError = false, errorMessage) {
         this.login(username,password);
         if(shouldError) {
-            this.isErrorButtonVisible();
+            this.isErrorButtonVisible(errorMessage);
         } else {
             cy.url().should('eq',inventoryPage.itemsPageURL);
             cy.get(inventoryPage.inventoryList).should('be.visible');
