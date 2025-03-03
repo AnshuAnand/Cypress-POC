@@ -45,6 +45,9 @@ class LoginPage {
     validateLogin(username,password,shouldError = false, errorMessage) {
         this.login(username,password);
         if(shouldError) {
+            if(!errorMessage){
+                throw new Error ("Error message should be provided when shouldError is true");
+            }
             this.isErrorButtonVisible(errorMessage);
         } else {
             cy.url().should('eq',inventoryPage.itemsPageURL);
