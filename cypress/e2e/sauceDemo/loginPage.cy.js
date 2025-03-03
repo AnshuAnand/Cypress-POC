@@ -1,9 +1,7 @@
 import LoginPage from "../../pageObjects/LoginPage";
 import loginTestData from "../../fixtures/loginTestData.json";
-import ItemsListPage from "../../pageObjects/ItemsListPage";
 
 const loginPage = new LoginPage();
-//const inventoryPage = new InventoryPage();
 
 describe("Login page", () => {
   beforeEach(() => {
