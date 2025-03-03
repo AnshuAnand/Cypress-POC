@@ -1,5 +1,6 @@
-import InventoryPage from "./InventoryPage";
-const inventoryPage = new InventoryPage();
+import ItemsListPage from "./ItemsListPage";
+const itemsListPage = new ItemsListPage();
+
 class LoginPage {
     //Locators for Login Page
     loginPageURL = Cypress.config().baseUrl;
@@ -50,8 +51,8 @@ class LoginPage {
             }
             this.isErrorButtonVisible(errorMessage);
         } else {
-            cy.url().should('eq',inventoryPage.itemsPageURL);
-            cy.get(inventoryPage.inventoryList).should('be.visible');
+            cy.url().should('eq',itemsListPage.itemsListPageURL);
+            cy.get(itemsListPage.inventoryList).should('be.visible');
         }
     }
 }

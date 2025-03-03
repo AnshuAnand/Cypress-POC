@@ -1,6 +1,6 @@
 import LoginPage from "../../pageObjects/LoginPage";
 import loginTestData from "../../fixtures/loginTestData.json";
-import InventoryPage from "../../pageObjects/InventoryPage";
+import ItemsListPage from "../../pageObjects/ItemsListPage";
 
 const loginPage = new LoginPage();
 //const inventoryPage = new InventoryPage();
