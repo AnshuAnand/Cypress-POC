@@ -16,7 +16,6 @@ describe("Login page", () => {
 
   loginTestData.validUsername.forEach((username) => {
     it(`should login with valid username: "${username}" and password`, () => {
-      //const password = loginTestData.validPassword.password;
       const password = loginTestData.validPassword;
       loginPage.validateLogin(username, password, false);
     });
