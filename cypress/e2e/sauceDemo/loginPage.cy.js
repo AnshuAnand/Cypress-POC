@@ -6,14 +6,22 @@ const loginPage = new LoginPage();
 describe("Login page", () => {
   let loginTestData;
   beforeEach(() => {
-    cy.fixture('loginTestData').then((data) => {
+    cy.fixture("loginTestData").then((data) => {
       loginTestData = data;
-    })
+    });
     loginPage.visitLoginPage();
   });
 
   it("should load the login page", () => {
     loginPage.isLoginButtonVisible();
+  });
+
+  it.only(`should login with multiple valid username and password`, () => {
+    loginTestData.validUsername.forEach((username) => {
+      const password = loginTestData.validPassword;
+      loginPage.validateLogin(username, password, false);
+      loginPage.visitLoginPage();
+    });
   });
 
   it("should not login with invalid username and password", () => {
@@ -23,13 +31,6 @@ describe("Login page", () => {
       "Epic sadface: Username and password do not match any user in this service";
     loginPage.validateLogin(username, password, true, errorMessage);
   });
-
-  /* loginTestData.validUsername.forEach((username) => {
-    it(`should login with valid username: "${username}" and password`, () => {
-      const password = loginTestData.validPassword;
-      loginPage.validateLogin(username, password, false);
-    });
-  }); */
 
   it("should show error for a locked_out user", () => {
     const username = loginTestData.lockedOutUser;
