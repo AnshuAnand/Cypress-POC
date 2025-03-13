@@ -16,7 +16,7 @@ describe("Login page", () => {
     loginPage.isLoginButtonVisible();
   });
 
-  it.only(`should login with multiple valid username and password`, () => {
+  it(`should login with multiple valid username and password`, () => {
     loginTestData.validUsername.forEach((username) => {
       const password = loginTestData.validPassword;
       loginPage.validateLogin(username, password, false);
