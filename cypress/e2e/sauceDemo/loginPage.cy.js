@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import LoginPage from "../../pageObjects/LoginPage";
 import loginTestData from "../../fixtures/loginTestData.json";
 
@@ -6,6 +7,7 @@ const loginPage = new LoginPage();
 describe("Login page", () => {
   beforeEach(() => {
     loginPage.visitLoginPage();
+    
   });
 
   it("should load the login page", () => {
