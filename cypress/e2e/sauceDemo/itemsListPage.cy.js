@@ -8,7 +8,7 @@ describe("Items list page", () => {
   let loginTestData;
   before(() => {
     cy.fixture("loginTestData").then((data) => {
-      loginTestData = data; // Assign data before tests run
+      loginTestData = data;
     });
   });
   

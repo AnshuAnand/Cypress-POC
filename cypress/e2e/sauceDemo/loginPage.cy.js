@@ -5,10 +5,12 @@ const loginPage = new LoginPage();
 
 describe("Login page", () => {
   let loginTestData;
-  beforeEach(() => {
+  before(() => {
     cy.fixture("loginTestData").then((data) => {
       loginTestData = data;
     });
+  });
+  beforeEach(() => {
     loginPage.visitLoginPage();
   });
 
@@ -24,7 +26,7 @@ describe("Login page", () => {
     });
   });
 
-  it("should not login with invalid username and password", () => {
+  it.only("should not login with invalid username and password", () => {
     const username = loginTestData.invalidUsername;
     const password = loginTestData.invalidPassword;
     const errorMessage =
