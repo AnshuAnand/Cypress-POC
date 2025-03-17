@@ -6,15 +6,23 @@ const itemsListPage = new ItemsListPage();
 
 describe("Items list page", () => {
   let loginTestData;
-  beforeEach(() => {
+  before(() => {
     cy.fixture("loginTestData").then((data) => {
-      loginTestData = data;
+      loginTestData = data; // Assign data before tests run
     });
+  });
+  
+  beforeEach(() => {
+    loginPage.visitLoginPage();
+    loginPage.validateLogin(
+      loginTestData.validUsername[0], 
+      loginTestData.validPassword, 
+      false
+    );
+    itemsListPage.isItemsListVisible();
   });
 
   it("should load the Items list page", () => {
-    loginPage.visitLoginPage();
-    loginPage.validateLogin(loginTestData.validUsername[0],loginTestData.validPassword,false);
-    itemsListPage.isItemsListVisible();
+
   });
 });
