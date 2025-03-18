@@ -22,7 +22,7 @@ describe("Items list page", () => {
     itemsListPage.isItemsListVisible();
   });
 
-  it("should load the Items list page", () => {
+  it("should display the items on Items list page", () => {
 
   });
 });

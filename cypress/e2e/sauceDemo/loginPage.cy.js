@@ -26,7 +26,7 @@ describe("Login page", () => {
     });
   });
 
-  it.only("should not login with invalid username and password", () => {
+  it("should not login with invalid username and password", () => {
     const username = loginTestData.invalidUsername;
     const password = loginTestData.invalidPassword;
     const errorMessage =

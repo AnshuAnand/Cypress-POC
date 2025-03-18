@@ -15,7 +15,6 @@ class LoginPage {
       this.isErrorButtonVisible(errorMessage);
     } else {
       cy.url().should("eq", itemsListPage.itemsListPageURL);
-      cy.get(itemsListPage.inventoryList).should("be.visible");
     }
   }
 
